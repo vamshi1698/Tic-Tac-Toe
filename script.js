@@ -1,4 +1,5 @@
 boxes = document.querySelectorAll(".button");
+p = document.getElementById("p");
 person1 = true;
 boxes.forEach((box) =>{
   box.addEventListener("click", () =>{
@@ -15,7 +16,6 @@ boxes.forEach((box) =>{
   });
 });
 
-
 //decide winner
 win_patterns = [
   [0,1,2],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[1,4,7],[2,5,8]
@@ -26,10 +26,15 @@ win_patterns.forEach((pattern) => {
   let [a,b,c] = pattern;
   if(boxes[a].innerText !== ''&& boxes[a].innerText === boxes[b].innerText && boxes[a].innerText === boxes[c].innerText)
   {
-    alert(`winner is ${boxes[a].innerText}`);
-    boxes.forEach((box)=> {
-      box.disabled = true;
+    const win = [a,b,c];
+    win.forEach((ele)=>{
+      boxes[ele].classList.add("winner");
     })
+    p.innerText = "winner is "+boxes[a].innerText 
+    boxes.forEach((box)=> {
+    box.disabled = true;
+    }
+  )
   }
 
 })
@@ -40,6 +45,8 @@ reset = document.getElementById("reset");
 function clear_data(){
  for( box of boxes){
    box.innerText = "";
-   box.disabled = false;
- }
+   box.disabled = false; 
+   box.classList.remove("winner");
+  p.innerText = "";
+  }
 }

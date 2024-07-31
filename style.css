@@ -1,4 +1,5 @@
-html {
+
+body, html {
   height: 100%;
   width: 100%;
   background-color: #6eccccff;
@@ -10,11 +11,15 @@ h1{
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 .container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
   background-color: #6eccccff;
 }
 .button{
-  width: 90px;
-  height: 90px;
+  width: 30vw;
+  height: 30vw;
   background-color: blue;
   color:white;
   border: none;
@@ -28,7 +33,7 @@ h1{
   display: flex;
   justify-content: center;
 }
-.button:hover{
+.button:focus{
   background-color: #00d9d9ff;
   margin: 5px solid black;
 }
@@ -45,8 +50,21 @@ h1{
   align-items: center;
   cursor:pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  text-size: 20px;
+  
 }
 #reset:hover{
   background-color: red;
+}
+.winner{
+  background-color: turquoise;
+  color: black;
+  transition: all ease-in 0.3s;
+}
+#p{
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  z-index: 3;
+  font-size: 2rem;
+  font-weight: bold;
 }
